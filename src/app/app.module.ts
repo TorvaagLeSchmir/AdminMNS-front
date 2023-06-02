@@ -22,10 +22,7 @@ import {CookieInterceptor} from "./Secu/Cookie.Interceptor";
 import {JwtInterceptor} from "./Secu/JwtInterceptor";
 import {AuthService} from "./Secu/AuthService";
 import {AppRoutingModule} from "./app-routing.module";
-import {MatDatepickerModule} from "@angular/material/datepicker";
-import {MatInputModule} from "@angular/material/input";
-import {MatButtonModule} from "@angular/material/button";
-import {DatePickerComponent} from './date-picker/date-picker.component';
+
 
 @NgModule({
   declarations: [
@@ -52,10 +49,6 @@ import {DatePickerComponent} from './date-picker/date-picker.component';
     RouterLink,
     AppRoutingModule,
     HttpClientModule,
-    MatDatepickerModule,
-    MatInputModule,
-    MatButtonModule,
-    DatePickerComponent
   ],
   providers: [    { provide: HTTP_INTERCEPTORS, useClass: CookieInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

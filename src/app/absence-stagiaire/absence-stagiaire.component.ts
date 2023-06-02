@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./absence-stagiaire.component.css']
 })
 export class AbsenceStagiaireComponent {
-
+  debutAbsence: string ="";
+  finAbsence: string ="";
 }
