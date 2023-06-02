@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Inscription</title>
+</head>
+<body>
+<div>
+  <label>Inscription</label>
+  <form (submit)="inscription()" method="post" name="inscription">
+
+    <label>nom</label>
+    <input type="text" name="nom" id="nom" [(ngModel)]="nom">
+
+    <label>prenom</label>
+    <input type="text" name="prenom" id="prenom" [(ngModel)]="prenom">
+
+        <label>emailMNS</label>
+        <input type="text" name="emailMNS" id="emailMNS" [(ngModel)]="pseudoInscription">
+
+        <label>Mot de passe</label>
+        <input type="text" name="motDePasse" id="motDePasse" [(ngModel)]="motDePasseInscription">
+    <input type="submit">
+  </form></div></body></html>
+<!-- -->
+
+<!--    &lt;!&ndash; Vos informations &ndash;&gt;-->
+<!--    <h2>Vos informations</h2>-->
+
+<!--    <label>Prénom</label>-->
+<!--    <input type="text" name="prenom" id="prenom" [(ngModel)]="prenom">-->
+
+<!--    <label>Nom</label>-->
+<!--    <input type="text" name="nom" id="nom" [(ngModel)]="nom">-->
+
+<!--    <label>Adresse</label>-->
+<!--    <input type="text" name="adresse" id="adresse" [(ngModel)]="adresse">-->
+
+<!--    <label>Code postal</label>-->
+<!--    <input type="text" name="code_postal" id="code_postal" [(ngModel)]="code_postal">-->
+
+<!--    <label>Ville</label>-->
+<!--    <input type="text" name="ville" id="ville" [(ngModel)]="ville">-->
+
+<!--    <label>Téléphone</label>-->
+<!--    <input type="text" name="telephone" id="telephone" [(ngModel)]="telephone">-->
+
+<!--    <label>Adresse email</label>-->
+<!--    <input type="email" name="email" id="email" [(ngModel)]="email">-->
+
+<!--    <label>Nationalité</label>-->
+<!--    <input type="text" name="nationalite" id="nationalite" [(ngModel)]="nationalite">-->
+
+<!--    &lt;!&ndash; Votre situation actuelle &ndash;&gt;-->
+<!--    <h2>Votre situation actuelle</h2>-->
+
+<!--    <label>Diplôme obtenu ou en cours d'obtention</label>-->
+<!--    <input type="text" name="diplome" id="diplome" [(ngModel)]="diplome">-->
+
+<!--    <label>Type de formation</label>-->
+<!--    <select type="text" name="formation_type" id="formation_type" [(ngModel)]="formation_type">-->
+<!--      <option value="neutral">Sélectionnez votre type de formation</option>-->
+<!--      <option value="alternance">En alternance</option>-->
+<!--      <option value="formationInitiale">Formation initiale</option>-->
+<!--    </select>-->
+
+<!--      <label>Avez-vous besoin d'aménagements ou d'adaptations spécifiques ?</label>-->
+
+<!--      <input type="radio" name="amenagements" id="amenagementsOui" value="oui" [(ngModel)]="amenagements">-->
+<!--      <label>Oui</label>-->
+
+<!--      <input type="radio" name="amenagements" id="amenagementsNon" value="non" [(ngModel)]="amenagements">-->
+<!--      <label>Non</label>-->
+
+<!--    <label>Si oui, lesquels ?</label>-->
+<!--    <input type="text" name="amenagementsInfo" id="amenagementsInfo" [(ngModel)]="amenagementsInfo">-->
+
+<!--    <label>Avez-vous déjà bénéficié d'un tiers-temps ?</label>-->
+<!--    <input type="radio" name="tiers_temps" id="tiers_tempsOui" value="Oui"[(ngModel)]="tiers_temps">-->
+<!--    <label>Oui</label>-->
+<!--    <input type="radio" name="tiers_temps" id="tiers_tempsNon" value="Non"[(ngModel)]="tiers_temps">-->
+<!--    <label>Non</label>-->
+
+<!--    <label>Quels langages de programmation connaissez-vous ?</label>-->
+<!--    <input type="text" name="langages" id="langages" [(ngModel)]="langages">-->
+
+<!--    <label>Indiquez ici l'adresse de consultation des projets que vous avez développé</label>-->
+<!--    <input type="text" name="projets_url" id="projets_url" [(ngModel)]="projets_url">-->
+
+<!--    &lt;!&ndash; Formation souhaitée &ndash;&gt;-->
+<!--    <h2>Formation souhaitée</h2>-->
+
+<!--    <label>Quelle formation vous intéresse ?</label>-->
+<!--    <select name="formation_interesse" id="formation_interesse" [(ngModel)]="formation_interesse">-->
+<!--      <option value="mns_systemes_reseaux">Mastère Systèmes, Réseaux et Cybersécurité</option>-->
+<!--      <option value="mns_management">Mastère Management</option>-->
+<!--      <option value="ing_alternance">Ingénierie Informatique en alternance</option>-->
+<!--    </select>-->
+
+
+<!--    &lt;!&ndash; Vos motivations &ndash;&gt;-->
+<!--    <h2>Vos motivations</h2>-->
+
+<!--    <label>Pourquoi avoir choisi MNS ?</label>-->
+<!--    <input type="text" name="choix_mns" id="choix_mns" [(ngModel)]="choix_mns">-->
+
+<!--    <label>Pourquoi avoir choisi cette formation ?</label>-->
+<!--    <input type="text" name="choix_formation" id="choix_formation" [(ngModel)]="choix_formation">-->
+
+<!--    <label>Quel est votre projet professionnel à court et moyen terme ?</label>-->
+<!--    <input type="text" name="projet_pro" id="projet_pro" [(ngModel)]="projet_pro">-->
+
+<!--    <label>Dans quel secteur d’activité souhaitez-vous faire votre stage obligatoire ou votre alternance ?</label>-->
+<!--    <input type="text" name="secteur_stage" id="secteur_stage" [(ngModel)]="secteur_stage">-->
+
+<!--    <label>Quelles sont vos principales qualités ?</label>-->
+<!--    <input type="text" name="qualites" id="qualites" [(ngModel)]="qualites">-->
+
+<!--    <label>Quelles sont vos principaux défauts ?</label>-->
+<!--    <input type="text" name="defauts" id="defauts" [(ngModel)]="defauts">-->
+
+<!--    <label>Avez-vous des passions, des hobbies ? Pratiquez-vous un sport ? Etes-vous investi dans une association ?</label>-->
+<!--    <input type="text" name="passions" id="passions" [(ngModel)]="passions">-->
+
+<!--    &lt;!&ndash; Langues étrangères &ndash;&gt;-->
+<!--    <h2>Langues étrangères</h2>-->
+
+<!--    <label>Pouvez-vous nous préciser votre niveau oral et écrit en anglais ?</label>-->
+<!--    <input type="text" name="niveau_anglais" id="niveau_anglais" [(ngModel)]="niveau_anglais">-->
+
+<!--    <label>Pratiquez-vous une autre langue étrangère ?</label>-->
+
+<!--    <input type="radio" name="autre_langue" id="autre_langueOui" value="Oui" [(ngModel)]="autre_langue">-->
+<!--    <label>Oui</label>-->
+<!--    <input type="radio" name="autre_langue" id="autre_langueNon" value="Non" [(ngModel)]="autre_langue">-->
+<!--    <label>Non</label>-->
+
+<!--    <label>Si oui, lesquels ?</label>-->
+<!--    <input type="text" name="autre_langueInfo" id="autre_langueInfo" [(ngModel)]="autre_langueInfo">-->
+
+<!--    &lt;!&ndash; Votre mobilité &ndash;&gt;-->
+<!--    <h2>Votre mobilité</h2>-->
+
+<!--    <label>Possédez-vous le permis B ?</label>-->
+
+<!--    <input type="radio" name="permis_b" id="permis_bOui" value="Oui"[(ngModel)]="permis_b">-->
+<!--    <label>Oui</label>-->
+<!--    <input type="radio" name="permis_b" id="permis_bNon" value="Non"[(ngModel)]="permis_b">-->
+<!--    <label>Non</label>-->
+
+<!--    <label>Possédez-vous un véhicule personnel ?</label>-->
+
+<!--    <input type="radio" name="vehicule" id="vehiculeOui" value="Oui" [(ngModel)]="vehicule">-->
+<!--    <label>Oui</label>-->
+<!--    <input type="radio" name="vehicule" id="vehiculeNon" value="Non" [(ngModel)]="vehicule">-->
+<!--    <label>Non</label>-->
+
+<!--    <label>Quelle est votre mobilité géographique ?</label>-->
+<!--    <input type="text" name="mobilite" id="mobilite" [(ngModel)]="mobilite">-->
+
+<!--    <label>Seriez-vous prêt à vous expatrier dans une autre région française ou dans un autre pays européen lors de votre stage ?</label>-->
+
+<!--    <input type="radio" name="expatriation_stage" id="expatriation_stageOui" value="Oui"[(ngModel)]="expatriation_stage">-->
+<!--    <label>Oui</label>-->
+<!--    <input type="radio" name="expatriation_stage" id="expatriation_stageNon" value="Non"[(ngModel)]="expatriation_stage">-->
+<!--    <label>Non</label>-->
+
+<!--    &lt;!&ndash; Comment avez-vous connu MNS &ndash;&gt;-->
+<!--    <h2>Comment avez-vous connu MNS</h2>-->
+
+<!--    <label>Comment avez-vous connu MNS ?</label>-->
+<!--    <input type="text" name="connu_mns" id="connu_mns" [(ngModel)]="connu_mns">-->
+
+<!--    <label>Par un ancien stagiaire</label>-->
+<!--    <input type="text" name="ancien_stagiaire" id="ancien_stagiaire" [(ngModel)]="ancien_stagiaire">-->
+
+<!--    <h2>Documents à joindre obligatoirement avec le dossier</h2>-->
+
+<!--    <input type="file" name="photo" id="photo" [(ngModel)]="photo">-->
+<!--    <input type="file" name="copie_id" id="copie_id" [(ngModel)]="copie_id">-->
+<!--    <input type="file" name="cv" id="cv" [(ngModel)]="cv">-->
+<!--    <input type="file" name="copie_diplome" id="copie_diplome" [(ngModel)]="copie_diplome">-->
+<!--    <input type="file" name="bulletins_notes" id="bulletins_notes" [(ngModel)]="bulletins_notes">-->
+<!--    <input type="file" name="lettre_motivation" id="lettre_motivation" [(ngModel)]="lettre_motivation">-->
+
+<!--    <input type="checkbox" name="acceptation_politique" id="acceptation_politique" [(ngModel)]="acceptation_politique">-->
+<!--    <label>J'ai lu et j'accepte la politique de protection des données personnelles de MNS</label>-->
+
+<!--    <button type="submit">S'inscrire</button>-->
+<!--  </form>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->

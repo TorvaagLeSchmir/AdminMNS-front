@@ -1,0 +1,36 @@
+<body>
+<div>
+  <ul>
+    <li>
+      <a>Portail</a>
+      <ul>
+        <li><a *ngIf="!estConnecte()" routerLink="/connexion">Connexion</a></li>
+        <li><a routerLink="/inscription">Inscription</a></li>
+      </ul>
+    </li>
+
+    <li *ngIf="estConnecte() && !isAdminStatus">
+      <a routerLink="/menu">Menu Stagiaires</a>
+      <ul>
+        <li><a routerLink="/absence">Déclarer une absence</a></li>
+        <li><a routerLink="/retard">Déclarer un retard</a></li>
+        <li><a routerLink="/document">Déposer un document</a></li>
+        <li><a routerLink="/profil">Espace Personnel</a></li>
+      </ul>
+    </li>
+
+    <li *ngIf="estConnecte() && isAdminStatus">
+      <a routerLink="/admin/menu">Menu Administration</a>
+      <ul>
+        <li><a routerLink="/admin/absence">Gestion des absences</a></li>
+        <li><a routerLink="/admin/retard">Gestion des retards</a></li>
+        <li><a routerLink="/admin/document">Espace documents</a></li>
+        <li><a routerLink="/admin/profil">Espace Profils</a></li>
+      </ul>
+    </li>
+
+    <li><a *ngIf="estConnecte()" (click)="deconnexion()">Deconnexion</a></li>
+  </ul>
+</div>
+</body>
+<router-outlet></router-outlet>

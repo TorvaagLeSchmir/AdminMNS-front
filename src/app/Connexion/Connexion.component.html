@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Connexion</title>
+</head>
+<body>
+<div *ngIf="!estConnecte()" id="div1">
+  <label id="labelConnexion">Connexion</label>
+  <form (submit)="connexion()" method="post" name="connexion" id="formConnexion">
+  <label>Email MNS:
+  <input type="text" name="emailMNS" id="emailMNS"
+         [(ngModel)]="username" [ngClass]="{ 'filled': username }" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" required>
+  </label>
+  <label>Mot de passe:
+    <input [type]="hidePassword ? 'password' : 'text'" name="password" id="password"
+           [(ngModel)]="password" [ngClass]="{ 'filled': password }" required>
+  </label>
+    <div id="boxPassword">
+      <div>
+        <label for="showPassword">Afficher le mot de passe</label>
+      </div>
+      <div>
+        <input type="checkbox" id="showPassword" (change)="hidePassword = !hidePassword">
+      </div>
+    </div>
+  <button type="submit">Se connecter</button>
+  </form>
+</div>
+<ul *ngIf="estConnecte()">Vous êtes déjà connecté !</ul>
+</body>
+</html>
