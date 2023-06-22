@@ -12,11 +12,6 @@ export class AdminGuard  {
   ) {}
 
       canActivate(): boolean {
-        console.log("AdminGuard - isAdminStatus: ", this.authService.isAdminStatus);
-
         return this.authService.isAdminStatus;
-
       }
-
-
     }

@@ -5,18 +5,32 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Absence Stagiaire</title>
 </head>
 <body>
-<form>
+<div id="mainDiv">
+<span>Attention ! La date de fin d'absence doit être équivalente ou postérieure à la date de début d'absence.</span>
+<div id="div1">
+<form id="form1">
   <label for="debutAbsence">Sélectionnez la date de début de votre absence :</label>
-  <input type="date" id="debutAbsence" name="debutAbsence" [(ngModel)]="debutAbsence">
+  <input type="datetime-local" id="debutAbsence" name="debutAbsence" [(ngModel)]="debutAbsence" required>
 </form>
-<form>
+<form id="form2">
   <label for="finAbsence">Sélectionnez la date de fin de votre absence :</label>
-  <input type="date" id="finAbsence" name="finAbsence" [(ngModel)]="finAbsence">
+  <input type="datetime-local" id="finAbsence" name="finAbsence" [(ngModel)]="finAbsence" required>
 </form>
-
-
+</div>
+<form id="motifForm">
+  <label>Veuillez inscrire le motif de votre absence :</label>
+  <textarea id="motif" name="motif" [(ngModel)]="motif" required></textarea>
+</form>
+  <form id="justificatifForm">
+    <label> Si vous en possédez, vous pouvez télécharger un document justificatif de votre absence (PDF uniquement) :</label>
+    <input type="file" id="justificatif" name="justificatif" (change)="onFileChange($event)" accept=".pdf" required>
+  </form>
+  <div id="div2">
+<button *ngIf="validation()" (click)="declarerAbsence()">Valider la déclaration d'absence</button>
+</div>
+</div>
 </body>
 </html>

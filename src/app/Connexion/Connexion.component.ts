@@ -39,11 +39,15 @@ export class ConnexionComponent {
         this.authService.isAdmin().subscribe(isAdmin => {
           this.authService.isAdminStatus = isAdmin;
           this.authService.onConnexion.next();
+
+          if (isAdmin) {
+            this.router.navigate(['/admin/menu']); // Si l'utilisateur est un administrateur, redirigez-le vers /admin/menu
+          } else {
+            this.router.navigate(['/menu']); // Sinon, redirigez-le vers /menu
+          }
         });
       }
     });
   }
-
-
 }
 

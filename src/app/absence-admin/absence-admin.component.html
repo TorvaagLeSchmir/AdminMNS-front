@@ -1,1 +1,28 @@
-<p>absence-admin works!</p>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Absence Admin</title>
+</head>
+<body>
+<div *ngIf="personnes && absences">
+  <h2>Liste des absences non vérifiées</h2>
+  <ul>
+    <li *ngFor="let personne of personnes; let i = index">
+      {{personne.nom}} {{personne['prénom']}}
+      <ul *ngIf="absences[i]">
+        <li>
+          Du {{absences[i]['dateDébut'] | date:'dd / MM / yyyy à HH:mm'}} au {{ absences[i].dateFin | date:'dd / MM / yyyy à HH:mm'}} : {{ absences[i].motif }}
+          <button type="button" id="accepter" (click)="justifierAbsence(absences[i].id)">Absence justifiée</button>
+          <button type="button" id="refuser" (click)="pasJustifierAbsence(absences[i].id)">Absence injustifiée</button>
+          <button *ngIf="absences[i].justificatifTxt" (click)="openJustificatif('http://localhost:8080/admin/justificatifs/' + getFilename(absences[i].justificatifTxt))">Voir le justificatif</button>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+</body>
+</html>

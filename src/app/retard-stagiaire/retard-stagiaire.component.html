@@ -1,1 +1,30 @@
-<p>retard-stagiaires works!</p>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Retard Stagiaire</title>
+</head>
+<body>
+<div id="mainDiv">
+    <form id="form1">
+      <label for="retard">Sélectionnez la date et l'heure d'arrivée estimée :</label>
+      <input type="datetime-local" id="retard" name="retard" [(ngModel)]="retard" required>
+    </form>
+
+  <form id="motifForm">
+    <label>Veuillez inscrire le motif de votre retard :</label>
+    <textarea id="motif" name="motif" [(ngModel)]="motif" required></textarea>
+  </form>
+  <form id="justificatifForm">
+    <label> Si vous en possédez, vous pouvez télécharger un document justificatif de votre retard (PDF uniquement) :</label>
+    <input type="file" id="justificatif" name="justificatif" (change)="onFileChange($event)" accept=".pdf" >
+  </form>
+  <div id="div2">
+    <button *ngIf="validation()" (click)="declarerRetard()">Valider la déclaration de retard</button>
+  </div>
+</div>
+</body>
+</html>

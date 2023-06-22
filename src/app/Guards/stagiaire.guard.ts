@@ -13,8 +13,6 @@ export class StagiaireGuard  {
   ) {}
 
   canActivate(): boolean {
-    console.log("StagiaireGuard - isAdminStatus: ", this.authService.isAdminStatus);
-
     return !this.authService.isAdminStatus;
   }
 }
