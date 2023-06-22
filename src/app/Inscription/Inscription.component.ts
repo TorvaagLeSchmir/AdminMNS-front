@@ -58,69 +58,9 @@ export class InscriptionComponent {
   constructor(private http: HttpClient, private router: Router) {
   }
 
-
-  // inscription(): void {
-  //   const url = 'http://localhost:8080/inscription';
-  //
-  //   const data = {
-  //     prenom: this.prenom,
-  //     nom: this.nom,
-  //     date_de_naissance: this.date_de_naissance,
-  //     adresse: this.adresse,
-  //     code_postal: this.code_postal,
-  //     ville: this.ville,
-  //     telephone: this.telephone,
-  //     email: this.email,
-  //     nationalite: this.nationalite,
-  //     diplome: this.diplome,
-  //     formation_type: this.formation_type,
-  //     amenagements: this.amenagements,
-  //     amenagementsInfo: this.amenagementsInfo,
-  //     tiers_temps: this.tiers_temps,
-  //     langages: this.langages,
-  //     projets_url: this.projets_url,
-  //     formation_interesse: this.formation_interesse,
-  //     choix_mns: this.choix_mns,
-  //     choix_formation: this.choix_formation,
-  //     projet_pro: this.projet_pro,
-  //     secteur_stage: this.secteur_stage,
-  //     qualites: this.qualites,
-  //     defauts: this.defauts,
-  //     passions: this.passions,
-  //     niveau_anglais: this.niveau_anglais,
-  //     autre_langue: this.autre_langue,
-  //     autre_langueInfo: this.autre_langueInfo,
-  //     permis_b: this.permis_b,
-  //     vehicule: this.vehicule,
-  //     mobilite: this.mobilite,
-  //     expatriation_stage: this.expatriation_stage,
-  //     connu_mns: this.connu_mns,
-  //     photo: this.photo,
-  //     copie_id: this.copie_id,
-  //     cv: this.cv,
-  //     copie_diplome: this.copie_diplome,
-  //     bulletins_notes: this.bulletins_notes,
-  //     lettre_motivation: this.lettre_motivation,
-  //     acceptation_politique: this.acceptation_politique,
-  //     ancien_stagiaire_prenom: this.ancien_stagiaire_prenom,
-  //     ancien_stagiaire_nom: this.ancien_stagiaire_nom,
-  //     ancien_stagiaire_formation: this.ancien_stagiaire_formation
-  //   };
-  //
-  //   const formData = new FormData();
-  //   formData.append('inscriptionData', JSON.stringify(data));
-  //
-  //   this.http.post(url, formData, {responseType: 'text'}).subscribe(response => {
-  //     this.router.navigate(['/home']).then(
-  //       () => {
-  //         alert("Inscription réussie, vous allez être redirigé vers la page d'accueil.");
-  //       },
-  //       (err) => {
-  //         alert("Il y a eu une erreur lors de votre inscription, veuillez réessayer.");
-  //       }
-  //     );
-  //   });
-  // }
+accepteConditions() : boolean{
+    return Boolean(this.acceptation_politique);
+}
 
   onPhotoSelected(event: any) {
     this.photo = event.target.files[0];
