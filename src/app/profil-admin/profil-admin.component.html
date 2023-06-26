@@ -12,7 +12,11 @@
   <h2>Liste des candidats souhaitant s'inscrire à une formation</h2>
   <ul>
     <li *ngFor="let candidat of candidats; let i = index">
-      {{ candidat.autre_langue }}
+      {{ candidat.personne.nom }}
+
+      {{ candidat.infos.autre_langue }}
+      <button *ngIf="candidat.infos.cv" (click)="openDocument('http://localhost:8080/admin/documents/' + getFilename(candidat.infos.cv))">Voir le CV</button>
+
     </li>
   </ul>
 </div>

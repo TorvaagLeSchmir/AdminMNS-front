@@ -9,7 +9,6 @@ import {HttpClient} from "@angular/common/http";
 export class ProfilAdminComponent {
 
   candidats: any[] = [];
-  photoUrls: string[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -18,9 +17,20 @@ export class ProfilAdminComponent {
   }
 
   getCandidats(): void {
-    this.http.get<any[]>('http://localhost:8080/admin/profil/candidats').subscribe(candidats => {
-      this.candidats = candidats;
+    this.http.get<any[]>('http://localhost:8080/admin/profil/candidats').subscribe(candidatsData => {
+      this.candidats = candidatsData.map(data => {
+        return {
+          personne: data.personne,
+          infos: data.infos
+        }
+      });
     });
+  }
+  openDocument(url: string): void {
+    window.open(url, '_blank');
+  }
+  getFilename(path: string): string {
+    return <string>path.split('/').pop();
   }
 
 
