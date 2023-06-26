@@ -12,11 +12,164 @@
   <h2>Liste des candidats souhaitant s'inscrire à une formation</h2>
   <ul>
     <li *ngFor="let candidat of candidats; let i = index">
-      {{ candidat.personne.nom }}
+     {{ candidat.personne['prénom'] }} {{ candidat.personne.nom }}
+      <button (click)="selectCandidat(i)">
+        {{ selectedCandidatIndex === i ? 'Masquer les informations' : 'Afficher les informations' }}
+      </button>
 
-      {{ candidat.infos.autre_langue }}
-      <button *ngIf="candidat.infos.cv" (click)="openDocument('http://localhost:8080/admin/documents/' + getFilename(candidat.infos.cv))">Voir le CV</button>
 
+      <div *ngIf="selectedCandidatIndex === i">
+        <table>
+          <tr>
+            <td>Date de naissance :</td>
+            <td>{{ candidat.personne.dateNaissance }}</td>
+          </tr>
+          <tr>
+            <td>Nom :</td>
+            <td>{{ candidat.personne.nom }}</td>
+          </tr>
+          <tr>
+            <td>Prénom :</td>
+            <td>{{ candidat.personne['prénom'] }}</td>
+          </tr>
+          <tr>
+            <td>Ville :</td>
+            <td>{{ candidat.personne.ville }}</td>
+          </tr>
+          <tr>
+            <td>Adresse :</td>
+            <td>{{ candidat.personne.rue }}</td>
+          </tr>
+          <tr>
+            <td>Code postal :</td>
+            <td>{{ candidat.personne.codePostal }}</td>
+          </tr>
+          <tr>
+            <td>Nationalité :</td>
+            <td>{{ candidat.personne['nationalité'] }}</td>
+          </tr>
+          <tr>
+            <td>Email personnel :</td>
+            <td>{{ candidat.personne.emailPerso }}</td>
+          </tr>
+          <tr>
+            <td>Diplôme :</td>
+            <td>{{ candidat.infos.diplome }}</td>
+          </tr>
+          <tr>
+            <td>Type de formation :</td>
+            <td>{{ candidat.infos.formation_type }}</td>
+          </tr>
+          <tr>
+            <td>Amenagements :</td>
+            <td>{{ candidat.infos.amenagements }}</td>
+          </tr>
+          <tr>
+            <td>Informations sur les aménagements :</td>
+            <td>{{ candidat.infos.amenagementsInfo }}</td>
+          </tr>
+          <tr>
+            <td>Tiers temps :</td>
+            <td>{{ candidat.infos.tiers_temps }}</td>
+          </tr>
+          <tr>
+            <td>Langages :</td>
+            <td>{{ candidat.infos.langages }}</td>
+          </tr>
+          <tr>
+            <td>URL des projets :</td>
+            <td>{{ candidat.infos.projets_url }}</td>
+          </tr>
+          <tr>
+            <td>Formation intéressée :</td>
+            <td>{{ candidat.infos.formation_interesse }}</td>
+          </tr>
+          <tr>
+            <td>Choix MNS :</td>
+            <td>{{ candidat.infos.choix_mns }}</td>
+          </tr>
+          <tr>
+            <td>Choix de formation :</td>
+            <td>{{ candidat.infos.choix_formation }}</td>
+          </tr>
+          <tr>
+            <td>Projet professionnel :</td>
+            <td>{{ candidat.infos.projet_pro }}</td>
+          </tr>
+          <tr>
+            <td>Secteur de stage :</td>
+            <td>{{ candidat.infos.secteur_stage }}</td>
+          </tr>
+          <tr>
+            <td>Qualités :</td>
+            <td>{{ candidat.infos.qualites }}</td>
+          </tr>
+          <tr>
+            <td>Défauts :</td>
+            <td>{{ candidat.infos.defauts }}</td>
+          </tr>
+          <tr>
+            <td>Passions :</td>
+            <td>{{ candidat.infos.passions }}</td>
+          </tr>
+          <tr>
+            <td>Niveau d'anglais :</td>
+            <td>{{ candidat.infos.niveau_anglais }}</td>
+          </tr>
+          <tr>
+            <td>Autre langue :</td>
+            <td>{{ candidat.infos.autre_langue }}</td>
+          </tr>
+          <tr>
+            <td>Informations sur l'autre langue :</td>
+            <td>{{ candidat.infos.autre_langueInfo }}</td>
+          </tr>
+          <tr>
+            <td>Permis B :</td>
+            <td>{{ candidat.infos.permis_b }}</td>
+          </tr>
+          <tr>
+            <td>Véhicule :</td>
+            <td>{{ candidat.infos.vehicule }}</td>
+          </tr>
+          <tr>
+            <td>Mobilité :</td>
+            <td>{{ candidat.infos.mobilite }}</td>
+          </tr>
+          <tr>
+            <td>Expatriation en stage :</td>
+            <td>{{ candidat.infos.expatriation_stage }}</td>
+          </tr>
+          <tr>
+            <td>Connu MNS :</td>
+            <td>{{ candidat.infos.connu_mns }}</td>
+          </tr>
+          <tr>
+            <td>Prénom de l'ancien stagiaire :</td>
+            <td>{{ candidat.infos.ancien_stagiaire_prenom }}</td>
+          </tr>
+          <tr>
+            <td>Nom de l'ancien stagiaire :</td>
+            <td>{{ candidat.infos.ancien_stagiaire_nom }}</td>
+          </tr>
+          <tr>
+            <td>Formation de l'ancien stagiaire :</td>
+            <td>{{ candidat.infos.ancien_stagiaire_formation }}</td>
+          </tr>
+        </table>
+
+        <button *ngIf="candidat.infos.photo" (click)="openDocument('http://localhost:8080/admin/documents/' + getFilename(candidat.infos.photo))">Voir la photo</button>
+        <button *ngIf="candidat.infos.copie_id" (click)="openDocument('http://localhost:8080/admin/documents/' + getFilename(candidat.infos.copie_id))">Voir la copie d'ID</button>
+        <button *ngIf="candidat.infos.cv" (click)="openDocument('http://localhost:8080/admin/documents/' + getFilename(candidat.infos.cv))">Voir le CV</button>
+        <button *ngIf="candidat.infos.copie_diplome" (click)="openDocument('http://localhost:8080/admin/documents/' + getFilename(candidat.infos.copie_diplome))">Voir la copie du diplôme</button>
+        <button *ngIf="candidat.infos.bulletins_notes" (click)="openDocument('http://localhost:8080/admin/documents/' + getFilename(candidat.infos.bulletins_notes))">Voir les bulletins de notes</button>
+        <button *ngIf="candidat.infos.lettre_motivation" (click)="openDocument('http://localhost:8080/admin/documents/' + getFilename(candidat.infos.lettre_motivation))">Voir la lettre de motivation</button>
+        <br><br>
+        <button *ngIf="!candidat.accepte" (click)="accepterCandidature(candidat)">Accepter la candidature</button>
+        <button *ngIf="!candidat.refuse" (click)="refuserCandidature(candidat)">Refuser la candidature</button>
+
+
+      </div>
     </li>
   </ul>
 </div>
