@@ -157,21 +157,46 @@
             <td>{{ candidat.infos.ancien_stagiaire_formation }}</td>
           </tr>
         </table>
-
+<div id="doc">
         <button *ngIf="candidat.infos.photo" (click)="openDocument('http://localhost:8080/admin/documents/' + getFilename(candidat.infos.photo))">Voir la photo</button>
         <button *ngIf="candidat.infos.copie_id" (click)="openDocument('http://localhost:8080/admin/documents/' + getFilename(candidat.infos.copie_id))">Voir la copie d'ID</button>
         <button *ngIf="candidat.infos.cv" (click)="openDocument('http://localhost:8080/admin/documents/' + getFilename(candidat.infos.cv))">Voir le CV</button>
         <button *ngIf="candidat.infos.copie_diplome" (click)="openDocument('http://localhost:8080/admin/documents/' + getFilename(candidat.infos.copie_diplome))">Voir la copie du diplôme</button>
         <button *ngIf="candidat.infos.bulletins_notes" (click)="openDocument('http://localhost:8080/admin/documents/' + getFilename(candidat.infos.bulletins_notes))">Voir les bulletins de notes</button>
         <button *ngIf="candidat.infos.lettre_motivation" (click)="openDocument('http://localhost:8080/admin/documents/' + getFilename(candidat.infos.lettre_motivation))">Voir la lettre de motivation</button>
-        <br><br>
-        <button *ngIf="!candidat.accepte" (click)="accepterCandidature(candidat)">Accepter la candidature</button>
-        <button *ngIf="!candidat.refuse" (click)="refuserCandidature(candidat)">Refuser la candidature</button>
-
-
+</div>
+<div id="validation">
+        <button *ngIf="!candidat.accepte" (click)="accepterCandidature(candidat)" id="accepter">Accepter la candidature</button>
+        <button *ngIf="!candidat.refuse" (click)="refuserCandidature(candidat)" id="refuser">Refuser la candidature</button>
+</div>
       </div>
     </li>
   </ul>
 </div>
+
+<h2>Liste des stagiaires inscrits</h2>
+
+<ul>
+  <li *ngFor="let stagiaire of stagiaires; let i = index">
+    {{ stagiaire['prénom'] }} {{ stagiaire.nom }}
+    <button (click)="selectStagiaire(i)">
+      {{ selectedStagiaireIndex === i ? 'Masquer les absences et retards' : 'Afficher les absences et retards' }}
+    </button>
+  </li>
+</ul>
+    <div *ngIf="selectedStagiaireIndex !== null && selectedStagiaireDetails">
+      <h3>Absences pour {{ selectedStagiaireDetails.prenom }} {{ selectedStagiaireDetails.nom }} :</h3>
+      <ul>
+        <li *ngFor="let absence of selectedStagiaireDetails.absences">
+          Date de début : {{ absence['dateDébut'] | date:'dd/MM/yyyy HH:mm' }} - Date de fin : {{ absence.dateFin | date:'dd/MM/yyyy HH:mm' }} - Motif : {{ absence.motif }} - Justifié : {{ absence.justified | yesNo }}
+        </li>
+      </ul>
+      <h3>Retards pour {{ selectedStagiaireDetails.prenom }} {{ selectedStagiaireDetails.nom }} :</h3>
+      <ul>
+        <li *ngFor="let retard of selectedStagiaireDetails.retards">
+          Date de début : {{ retard['dateDébut'] | date:'dd/MM/yyyy HH:mm' }} - Date de fin : {{ retard.dateFin | date:'dd/MM/yyyy HH:mm' }} - Motif : {{ retard.motif }} - Justifié : {{ retard.justified | yesNo }}
+        </li>
+      </ul>
+    </div>
 </body>
 </html>

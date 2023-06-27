@@ -28,16 +28,16 @@
     <input type="text" name="adresse" id="adresse" [(ngModel)]="adresse" required>
 
     <label>Code postal</label>
-    <input type="text" name="code_postal" id="code_postal" [(ngModel)]="code_postal" required>
+    <input type="text" name="code_postal" id="code_postal" [(ngModel)]="code_postal" required pattern="\d*" maxlength="5">
 
     <label>Ville</label>
     <input type="text" name="ville" id="ville" [(ngModel)]="ville" required>
 
     <label>Téléphone</label>
-    <input type="text" name="telephone" id="telephone" [(ngModel)]="telephone" required>
+    <input type="text" name="telephone" id="telephone" [(ngModel)]="telephone" required pattern="\d*" maxlength="13">
 
     <label>Adresse email</label>
-    <input type="email" name="email" id="email" [(ngModel)]="email" required>
+    <input type="email" name="email" id="email" [(ngModel)]="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
 
     <label>Nationalité</label>
     <input type="text" name="nationalite" id="nationalite" [(ngModel)]="nationalite" required>
@@ -85,9 +85,9 @@
     <label>Quelle formation vous intéresse ?</label>
     <select name="formation_interesse" id="formation_interesse" [(ngModel)]="formation_interesse" required>
       <option value="" disabled selected>Sélectionnez la formation qui vous intéresse</option>
-      <option value="mns_systemes_reseaux">Mastère Systèmes, Réseaux et Cybersécurité</option>
-      <option value="mns_management">Mastère Management</option>
-      <option value="ing_alternance">Ingénierie Informatique en alternance</option>
+      <option value="Mastère Systèmes, Réseaux et Cybersécurité">Mastère Systèmes, Réseaux et Cybersécurité</option>
+      <option value="Mastère Management">Mastère Management</option>
+      <option value="Ingénierie Informatique en alternance">Ingénierie Informatique en alternance</option>
     </select>
 
 

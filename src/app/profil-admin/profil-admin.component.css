@@ -1,0 +1,19 @@
+#accepter {
+  /*background-color: lawngreen;*/
+  background-color: cyan;
+
+}
+#refuser{
+  /*background-color : #a40d1f;*/
+  background-color: rgba(236, 104, 52, 1);
+
+  color : white;
+}
+#validation{
+  display: flex;
+  justify-content: center;
+}
+#doc{
+  display: flex;
+  justify-content: center;
+}

@@ -22,6 +22,7 @@ import {CookieInterceptor} from "./Secu/Cookie.Interceptor";
 import {JwtInterceptor} from "./Secu/JwtInterceptor";
 import {AuthService} from "./Secu/AuthService";
 import {AppRoutingModule} from "./app-routing.module";
+import {YesNoPipe} from "./Outils/YesNoPipe";
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import {AppRoutingModule} from "./app-routing.module";
     ProfilStagiaireComponent,
     MenuAdminComponent,
     MenuStagiaireComponent,
+    YesNoPipe
 
   ],
   imports: [

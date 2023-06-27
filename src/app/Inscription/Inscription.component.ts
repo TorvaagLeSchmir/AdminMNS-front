@@ -164,6 +164,7 @@ accepteConditions() : boolean{
         });
       },
       (error) => {
+        console.log(error);
         alert("Il y a eu une erreur lors de votre inscription, veuillez réessayer.");
       }
     );
