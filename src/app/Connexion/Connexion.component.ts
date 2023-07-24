@@ -41,9 +41,9 @@ export class ConnexionComponent {
           this.authService.onConnexion.next();
 
           if (isAdmin) {
-            this.router.navigate(['/admin/menu']); // Si l'utilisateur est un administrateur, redirigez-le vers /admin/menu
+            this.router.navigate(['/admin/menu']);
           } else {
-            this.router.navigate(['/menu']); // Sinon, redirigez-le vers /menu
+            this.router.navigate(['/menu']);
           }
         });
       }

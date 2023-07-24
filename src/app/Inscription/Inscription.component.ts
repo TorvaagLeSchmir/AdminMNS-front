@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 })
 export class InscriptionComponent {
 
-  HttpClient: any;
 
   prenom = "";
   nom = "";

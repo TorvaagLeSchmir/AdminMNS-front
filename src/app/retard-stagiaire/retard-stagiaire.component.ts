@@ -28,7 +28,7 @@ export class RetardStagiaireComponent {
       return;
     }
     const formData = new FormData();
-    formData.append('finAbsence', this.retard);
+    formData.append('retard', this.retard);
     formData.append('motif', this.motif);
     if (this.justificatif) {
       formData.append('justificatif', this.justificatif, this.justificatif.name);

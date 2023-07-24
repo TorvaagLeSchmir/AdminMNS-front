@@ -59,3 +59,7 @@ button:hover {
 p{
   color : yellow;
 }
+input:focus:valid {
+  background-color: lawngreen;
+  transition: 1000ms;
+}
